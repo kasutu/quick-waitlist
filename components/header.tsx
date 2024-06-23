@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Speaker from '/public/speaker.svg';
 import { CardTitle, CardDescription } from './ui/card';
+import Link from 'next/link';
 
 export function Header() {
   // Data from env
@@ -29,7 +30,12 @@ export function Header() {
           <div>{restOfString}</div>
         </CardTitle>
         <CardDescription className="text-lg md:text-[26px] font-normal">
-          {Subtitle}
+          {Subtitle} <br />
+          <Link href={"/about-us"}>
+            <span className='text-2xl leading-6 cursor-pointer font-semibold text-indigo-300'>
+              Learn more about us &rarr;
+            </span>
+          </Link>
         </CardDescription>
       </div>
     </div>

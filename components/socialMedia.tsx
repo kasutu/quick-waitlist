@@ -12,14 +12,14 @@ export function SocialMedia() {
     process.env.NEXT_PUBLIC_GITHUB || 'https://www.github.com/';
 
   return (
-    <div className="flex justify-center items-center gap-2 mt-6 ">
-      <Link href={LinkedinLink} className="relative w-[22px] h-[22px]">
+    <div className="flex justify-center items-center gap-2 mt-4">
+      <Link href={LinkedinLink} className="relative w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]">
         <Image src={Linkedin} alt="Linkedin" fill />
       </Link>
-      <Link href={TwitterLink} className="relative w-[22px] h-[22px]">
+      <Link href={TwitterLink} className="relative w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]">
         <Image src={Twitter} alt="Twitter" fill />
       </Link>
-      <Link href={GithubLink} className="relative w-[22px] h-[22px]">
+      <Link href={GithubLink} className="relative w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]">
         <Image src={Github} alt="Github" fill />
       </Link>
     </div>

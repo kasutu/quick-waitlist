@@ -1,54 +1,27 @@
-'use client';
+import Speaker from '/public/speaker.svg';
 
-import { useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import EmailForm from '@/components/EmailForm';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@/components/ui/card';
-
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
+import HeroPage from '@/components/heroPage';
+import OurStory from '@/components/ourStory';
+import AboutUs from '@/components/aboutUs';
 
 export default function Home() {
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const siteLogo = process.env.NEXT_PUBLIC_LOGO || Speaker;
 
-  useEffect(() => {
-    if (isMobile) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [isMobile]);
-
-  return isMobile ? <Mobile /> : <Desktop />;
-}
-
-function Desktop() {
   return (
-    <Card className="max-w-md md:max-w-screen-lg w-full mx-auto relative border-[1.5px] py-8">
-      <CardHeader>
-        <Header />
-      </CardHeader>
-      <CardContent>
-        <EmailForm />
-      </CardContent>
-      <CardFooter>
-        <Footer />
-      </CardFooter>
-    </Card>
-  );
-}
+    <>
+      {/* Ga error ang siteLogo idk what to do with it */}
+      {/* <div className="flex justify-center items-center h-20 md:h-28 relative scale-[35%]">
+        <Image
+          src={siteLogo}
+          alt="white square silid"
+          width={500}
+          height={500}
+        />
+      </div> */}
 
-function Mobile() {
-  return (
-    <div className="w-full mx-auto px-5 space-y-10">
-      <Header />
-      <EmailForm />
-      <Footer />
-    </div>
+      <HeroPage />
+      <OurStory />
+      <AboutUs />
+    </>
   );
 }

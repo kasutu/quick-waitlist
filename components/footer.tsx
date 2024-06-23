@@ -13,7 +13,7 @@ import { SocialMedia } from '@/components/socialMedia';
 export function Footer() {
   return (
     <div className="min-w-full">
-      <p className="text-muted-foreground text-md text-center mt-2">
+      <p className="text-muted-foreground text-sm lg:text-base text-center mt-2">
         we care about your data in our{' '}
         <Dialog>
           <DialogTrigger className="underline transition-all duration-200 hover:text-white/90">

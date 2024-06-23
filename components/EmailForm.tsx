@@ -47,9 +47,9 @@ const EmailForm = () => {
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className="grid grid-cols-1 md:flex md:justify-center md:items-center gap-2"
+      className="grid grid-cols-1 sm:flex sm:justify-center sm:items-center gap-2 m-auto max-w-[400px] sm:max-w-full"
     >
-      <div className="relative">
+      <div className="relative ">
         <label
           htmlFor="email"
           className="absolute inset-y-0 left-0 pl-2.5 flex items-center"
@@ -66,7 +66,7 @@ const EmailForm = () => {
         />
       </div>
 
-      <Button disabled={isPending} type="submit">
+      <Button disabled={isPending} type="submit" className=''>
         Subscribe
       </Button>
     </form>

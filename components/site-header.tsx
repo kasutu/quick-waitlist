@@ -1,28 +1,24 @@
-'use client';
+"use client";
 
-import { Logo } from '@/public/icons/logo';
-import Link from 'next/link';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import { Logo } from "@/public/icons/logo";
+import Link from "next/link";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import {
-  Check,
   CheckSquare,
-  Filter,
   Goal,
-  Map,
   Menu,
-  Package,
   Rocket,
   X,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from './ui/accordion';
-import { ThemeModeToggle } from './theme-mode-toggle';
-import { Separator } from './ui/separator';
-import { Button } from './ui/button';
+} from "./ui/accordion";
+import { ThemeModeToggle } from "./theme-mode-toggle";
+import { Separator } from "./ui/separator";
+import { Button } from "./ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -31,9 +27,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
+} from "@/components/ui/navigation-menu";
+import { useState } from "react";
 
 export default function SiteHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex place-content-between h-14 max-w-screen-2xl items-center">
@@ -64,7 +63,7 @@ export default function SiteHeader() {
                     />
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Company</NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -73,6 +72,7 @@ export default function SiteHeader() {
                       icon={Rocket}
                       title="About"
                       description="Learn about our company."
+                      href="/company/about"
                     />
                     <NavigationButtonMobile
                       icon={Goal}
@@ -81,7 +81,7 @@ export default function SiteHeader() {
                     />
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuItem> */}
+              </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/survey" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -94,7 +94,7 @@ export default function SiteHeader() {
         </div>
 
         <ThemeModeToggle variant="ghost" className="hidden md:block" />
-        <Popover modal>
+        <Popover modal open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
           <PopoverTrigger className="block md:hidden data-[state=open]:hidden">
             <Menu />
           </PopoverTrigger>
@@ -141,15 +141,16 @@ export default function SiteHeader() {
                 </AccordionContent>
               </AccordionItem> */}
               {/* company */}
-              {/* <AccordionItem value="Company">
+              <AccordionItem value="Company">
                 <AccordionTrigger className="hover:no-underline px-4">
                   Company
                 </AccordionTrigger>
-                <AccordionContent className="flex flex-col gap-4">
+                <AccordionContent className="flex flex-col gap-4" onClick={() => setIsOpen(false)}>
                   <NavigationButtonMobile
                     icon={Rocket}
                     title="About"
                     description="Learn about our company."
+                    href="/company/about"
                   />
                   <NavigationButtonMobile
                     icon={Goal}
@@ -157,10 +158,10 @@ export default function SiteHeader() {
                     description="Achievements, Future plans, and goals."
                   />
                 </AccordionContent>
-              </AccordionItem> */}
+              </AccordionItem>
             </Accordion>
             <NavigationButtonMobile
-              href={'/survey'}
+              href={"/survey"}
               icon={CheckSquare}
               title="Survey"
               description="Make Silid Better."
@@ -185,7 +186,7 @@ const NavigationButtonMobile: React.FC<NavigationButtonProps> = ({
   ...props
 }) => {
   return (
-    <a href={href ? href : ' '} className="w-full">
+    <a href={href ? href : " "} className="w-full">
       <Button variant="ghost" className="w-full h-14 px-2 rounded-lg">
         <div className="flex w-full gap-4 ">
           <div className="p-2 border rounded-sm">

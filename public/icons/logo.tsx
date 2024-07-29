@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import { SVGProps } from 'react';
 
 export function Logo({ ...props }: { className?: string }) {
   return (

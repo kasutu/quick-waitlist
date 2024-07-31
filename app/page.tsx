@@ -1,5 +1,6 @@
 'use client';
 
+import AudienceCount from '@/components/AudienceCount';
 import EmailForm from '@/components/EmailForm';
 import { Announcement } from '@/components/announcement';
 import {
@@ -32,7 +33,8 @@ export default function IndexPage() {
             In One Platform
           </PageHeroHeading>
           <PageHeroDescription>{Subtitle}</PageHeroDescription>
-          <PageActions className="py-16 sm:pb-0">
+          <PageActions className="py-16 sm:pb-0 flex flex-col gap-1">
+            <AudienceCount />
             <EmailForm />
           </PageActions>
         </PageHero>

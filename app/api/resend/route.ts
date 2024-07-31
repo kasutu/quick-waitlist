@@ -1,6 +1,6 @@
-import { EmailTemplate } from "@/components/EmailTemplate";
-import { Resend } from "resend";
-import { NextRequest, NextResponse } from "next/server";
+import { EmailTemplate } from '@/components/EmailTemplate';
+import { Resend } from 'resend';
+import { NextRequest, NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromEmail = process.env.NEXT_PUBLIC_FROM_EMAIL;
@@ -19,8 +19,8 @@ export async function POST(req: NextRequest) {
       subject: subject,
       react: EmailTemplate(),
       headers: {
-        "List-Unsubscribe": unsubscribeUrl,
-        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+        'List-Unsubscribe': unsubscribeUrl,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
       },
     });
 
@@ -33,6 +33,22 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       sendEmail,
       addContact,
+    });
+  } catch (error) {
+    return NextResponse.json({ error });
+  }
+}
+
+export async function GET() {
+  try {
+    const getAudiences = await resend.contacts.list({
+      audienceId: audienceId as string,
+    });
+
+    const audienceCount = getAudiences.data;
+
+    return NextResponse.json({
+      audienceCount: audienceCount?.data.length,
     });
   } catch (error) {
     return NextResponse.json({ error });

@@ -33,7 +33,7 @@ export default function IndexPage() {
             In One Platform
           </PageHeroHeading>
           <PageHeroDescription>{Subtitle}</PageHeroDescription>
-          <PageActions className="py-16 sm:pb-0 flex flex-col gap-1">
+          <PageActions className="py-16 sm:pb-0 flex flex-col gap-4">
             <AudienceCount />
             <EmailForm />
           </PageActions>

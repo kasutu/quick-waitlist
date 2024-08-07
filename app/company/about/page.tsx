@@ -1,11 +1,10 @@
-import Team from "@/components/team";
-import Motivation from "@/components/motivation";
-import ValueProposition from "@/components/valueProposition";
+import Team from '@/components/team';
+import Motivation from '@/components/motivation';
+import ValueProposition from '@/components/valueProposition';
 
-import { PageHero, PageHeroHeading } from "@/components/page-hero";
+import { PageHero, PageHeroHeading } from '@/components/page-hero';
 
-import Image from "next/image";
-import MapImage from "@/components/mapImage";
+import MapImage from '@/components/mapImage';
 
 export default function AboutUs() {
   return (
